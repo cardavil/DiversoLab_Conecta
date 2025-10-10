@@ -27,12 +27,14 @@ body{
 .wrap{ max-width:1200px; margin:24px auto; padding:0 16px; box-sizing:border-box; }
 
 /* ======= Paneles ======= */
-.header,.side,.main,.footer{
-  background:var(--card);
-  border:1px solid var(--line);
-  border-radius:var(--radius);
+.header,.side,.main {
+  background: var(--card);
+  border: 1px solid var(--line);
 }
-.header,.side,.main{ padding:12px; }
+.footer {
+  background: transparent;
+  border: none;
+}
 
 /* ======= Header ======= */
 .header{
