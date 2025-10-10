@@ -1,22 +1,11 @@
-/* ======= Estilos para escritorio ======= */
+/* ======= Escritorio (≥901px) ======= */
 
-/* Igualar alturas de sidebar y visor */
-.layout{
-  flex-direction: row;
-  align-items: stretch;
-}
-
+/* Igualar alturas sidebar y visor como en 3-HTML */
 .side{
-  height:auto;
-  min-height:78vh;
+  height:auto;        /* anula fijos */
+  min-height:78vh;    /* mismo piso que el visor */
   overflow:auto;
 }
-
 .main iframe{
-  min-height:78vh;
-}
-
-/* Ajustes extra en pantallas grandes */
-@media (min-width:1200px){
-  .wrap{ max-width:1400px; }
+  min-height:78vh;    /* igual piso que el sidebar */
 }
