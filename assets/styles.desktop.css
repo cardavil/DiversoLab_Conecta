@@ -1,14 +1,15 @@
-/* ======= Paleta y tokens base ======= */
-/* (Usa los de base; aquí solo overrides por media) */
+/* ======= Estilos para escritorio ======= */
 
-@media (min-width:901px){
-  /* Igualar alturas sidebar y visor */
-  .side{
-    height:auto;           /* anula fijos */
-    min-height:78vh;       /* piso */
-    overflow:auto;
-  }
-  .main iframe{
-    min-height:calc(78vh - var(--viewerhead)); /* resta encabezado del visor */
-  }
+.layout {
+  flex-direction: row;
+  align-items: stretch;
+}
+
+#sidebar {
+  max-height: calc(100vh - 160px);
+  overflow-y: auto;
+}
+
+.main {
+  height: calc(100vh - 160px);
 }
