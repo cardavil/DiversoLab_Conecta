@@ -1,43 +1,47 @@
 /* ======= Estilos para móviles ======= */
 
-/* Columnas apiladas */
-.layout {
-  flex-direction: column;
-  padding: 0.5rem;
-}
-
-/* Sidebar arriba del viewer */
-#sidebar {
-  width: 100%;
-  max-width: none;
-  border-radius: var(--radius-lg);
-  order: 1;
-}
-
-.main {
-  order: 2;
-  height: auto;
-  min-height: 60vh;
-}
-
-/* Botones más grandes para tacto */
-.sidebar-section button {
-  font-size: 1rem;
-  padding: 0.8rem 1rem;
-}
-
-/* Ajustes landscape (horizontal) */
-@media (orientation: landscape) and (max-width: 900px) {
-  .layout {
-    flex-direction: row;
+/* --- Móvil vertical --- */
+@media (max-width:700px){
+  .layout{
+    flex-direction: column;
   }
-  #sidebar {
-    width: 40%;
-    max-height: 80vh;
-    overflow-y: auto;
+  .side{
+    width:100%;
+    box-sizing:border-box;
+    height:auto;
+    min-height:auto;
+    overflow:auto;
   }
-  .main {
-    width: 60%;
-    height: 80vh;
+  .main iframe{
+    min-height:60vh;
+  }
+}
+
+/* --- Móvil horizontal (landscape) --- */
+@media (max-width:900px) and (orientation: landscape){
+  .layout{
+    display:flex;
+    flex-direction:row;
+    align-items:stretch;
+    gap:16px;
+  }
+  .side{
+    width:auto;
+    min-width:0;
+    flex:0 0 38%;
+    max-width:38%;
+    box-sizing:border-box;
+    height:auto;
+    min-height:auto;
+    overflow:auto;
+  }
+  .main{
+    flex:1 1 62%;
+    max-width:62%;
+    height:auto;
+    min-height:auto;
+  }
+  .main iframe{
+    min-height:70svh;
   }
 }
