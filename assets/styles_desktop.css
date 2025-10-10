@@ -1,11 +1,12 @@
 /* ======= Escritorio (≥901px) ======= */
-
-/* Igualar alturas sidebar y visor como en 3-HTML */
-.side{
-  height:auto;        /* anula fijos */
-  min-height:78vh;    /* mismo piso que el visor */
-  overflow:auto;
-}
-.main iframe{
-  min-height:78vh;    /* igual piso que el sidebar */
+@media (min-width:901px){
+  /* Igualar alturas sidebar y visor como en 3-HTML */
+  .side{
+    height:auto;        /* anula fijos */
+    min-height:78vh;    /* mismo piso que el visor */
+    overflow:auto;
+  }
+  .main iframe{
+    min-height:78vh;    /* igual piso que el sidebar */
+  }
 }
