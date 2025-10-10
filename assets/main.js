@@ -2,7 +2,9 @@
 async function loadComponent(id, file) {
   const container = document.getElementById(id);
   try {
-    const res = await fetch(file);
+    // Ruta base compatible con GitHub Pages
+    const base = window.location.pathname.replace(/\/[^\/]*$/, "/");
+    const res = await fetch(`${base}${file}`);
     if (!res.ok) throw new Error(`${file} no encontrado`);
     const html = await res.text();
     container.innerHTML = html;
@@ -13,11 +15,11 @@ async function loadComponent(id, file) {
 }
 
 // ===== Función principal =====
-(async () => {
+(async function() {
   const params = new URLSearchParams(window.location.search);
   const page = params.get("p") || "formularios";
 
-  // Cargar estructura base
+   // Cargar estructura base
   await loadComponent("header", "./components/header.html");
   await loadComponent("footer", "./components/footer.html");
 
@@ -29,7 +31,7 @@ async function loadComponent(id, file) {
 
   await loadComponent("viewerContainer", "./components/viewer.html");
 
-  // === Configurar botones de navegación (header) ===
+  // Navegación entre páginas
   const btnForms = document.getElementById("btnForms");
   const btnDash  = document.getElementById("btnDash");
   if (btnForms && btnDash) {
@@ -44,7 +46,7 @@ async function loadComponent(id, file) {
     }
   }
 
-  // === Activar lógica del visor ===
+  // Lógica del visor
   const viewer      = document.getElementById("viewer");
   const viewerTitle = document.getElementById("viewerTitle");
   const openNew     = document.getElementById("openNew");
@@ -59,19 +61,18 @@ async function loadComponent(id, file) {
     openNew.disabled = !url;
     openNew.onclick = () => window.open(url, "_blank");
 
-    // Persistencia local
     const key = page === "formularios" ? "conecta_last_form" : "conecta_last_viz";
     localStorage.setItem(key, JSON.stringify({ title, url }));
   }
 
-  // Delegación de eventos (más confiable que setTimeout)
+  // Delegación de eventos
   const sidebar = document.getElementById("sidebar");
   sidebar.addEventListener("click", e => {
     const btn = e.target.closest(".item-btn");
     if (btn) select(btn);
   });
 
-  // Restaurar última selección
+  // Restaurar selección previa
   const key = page === "formularios" ? "conecta_last_form" : "conecta_last_viz";
   const saved = localStorage.getItem(key);
   if (saved) {
