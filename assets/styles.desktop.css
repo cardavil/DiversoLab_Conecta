@@ -1,0 +1,14 @@
+/* ======= Paleta y tokens base ======= */
+/* (Usa los de base; aquí solo overrides por media) */
+
+@media (min-width:901px){
+  /* Igualar alturas sidebar y visor */
+  .side{
+    height:auto;           /* anula fijos */
+    min-height:78vh;       /* piso */
+    overflow:auto;
+  }
+  .main iframe{
+    min-height:calc(78vh - var(--viewerhead)); /* resta encabezado del visor */
+  }
+}
