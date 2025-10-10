@@ -19,6 +19,7 @@ body{
   color:var(--text);
   font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Arial;
   background: var(--bg-base);
+  /* gradiente básico, sin funciones avanzadas */
   background-image: linear-gradient(180deg, var(--bg-a) 0%, var(--bg-b) 100%);
   background-attachment: fixed;
 }
@@ -26,12 +27,13 @@ body{
 /* ======= Contenedor ======= */
 .wrap{ max-width:1200px; margin:24px auto; padding:0 16px; box-sizing:border-box; }
 
-/* ======= Paneles (el footer NO es tarjeta) ======= */
+/* ======= Paneles principales (el footer NO es tarjeta) ======= */
 .header,.side,.main{
   background:var(--card);
   border:1px solid var(--line);
   border-radius:var(--radius);
   padding:12px;
+  box-sizing:border-box;
 }
 
 /* ======= Header ======= */
@@ -46,7 +48,8 @@ body{
   font-weight:800; font-size:22px; letter-spacing:.08em;
   display:flex; align-items:center; gap:.25em; text-transform:uppercase;
 }
-.acronym .l{ display:inline-block } .acronym .dot{ opacity:.55 }
+.acronym .l{ display:inline-block; }
+.acronym .dot{ opacity:.55; }
 
 /* Colores letras C O N E C T A */
 .acronym span:nth-child(1){ color:#fdda64; } /* C */
@@ -65,8 +68,7 @@ body{
   padding:8px 12px; cursor:pointer;
 }
 .open:hover{ background:var(--btn-hover); }
-/* sin color-mix por compatibilidad */
-.open.active{ outline:2px solid rgba(253,218,100,.6); }
+.open.active{ outline:2px solid rgba(253,218,100,0.6); }
 
 /* ======= Layout general ======= */
 .layout{ display:flex; gap:16px; margin-top:16px; }
@@ -81,11 +83,11 @@ body{
 }
 .list{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:8px; }
 .item-btn{
-  width:100%; text-align:left; border:1px solid var(--line); background:white;
+  width:100%; text-align:left; border:1px solid var(--line); background:#fff;
   border-radius:12px; padding:10px 12px; cursor:pointer; color:var(--text);
 }
 .item-btn:hover{ border-color:#d1d6ea; background:#fafbff; }
-.item-btn.active{ outline:2px solid rgba(253,218,100,.55); }
+.item-btn.active{ outline:2px solid rgba(253,218,100,0.55); }
 
 /* ======= Viewer ======= */
 .viewer-head{
