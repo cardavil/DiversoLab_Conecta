@@ -1,26 +1,37 @@
-/* ======= Móvil vertical (≤700px) ======= */
+/* --- Móvil vertical: igual al 3-HTML --- */
 @media (max-width:700px){
   .header{
+    display:flex;
     flex-direction: column;
     align-items: stretch;
     gap: 8px;
   }
-
-  .brand{
-    display:flex; flex-direction:row; align-items:center; justify-content:center;
-    gap:10px; flex-wrap:nowrap; text-align:left;
+  .header .brand{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: nowrap;
+    text-align: left;
   }
-
-  .top-buttons{
-    order:2; width:100%; display:flex; gap:8px;
+  .header .top-buttons{
+    order: 2;
+    width: 100%;
+    display: flex;
+    gap: 8px;
   }
-  .top-buttons .open{ flex:1 1 auto; width:auto; }
+  .header .top-buttons .open{
+    flex: 1 1 auto;
+    width: auto;
+  }
+  .header .acronym{ font-size:18px }
+  .header .expansion{ font-size:11px }
 
-  .acronym{ font-size:18px; }
-  .expansion{ font-size:11px; }
+  /* Apilado vertical */
+  .layout{ flex-direction: column; }
 
-  .layout{ flex-direction:column; }
-
+  /* Sidebar en móvil: ancho completo */
   .side{
     width:100%;
     box-sizing:border-box;
@@ -28,14 +39,10 @@
     min-height:auto;
     overflow:auto;
   }
-
-  .main iframe{
-    min-height:60vh; /* para no pasar el viewport en vertical */
-  }
 }
 
-/* ======= Móvil horizontal (≤900px, paisaje) ======= */
-@media (max-width:900px) and (orientation:landscape){
+/* ===== Móvil horizontal (apaisado): DOS columnas como 3-HTML ===== */
+@media (max-width:900px) and (min-aspect-ratio:1/1){
   .layout{
     display:flex;
     flex-direction:row;      /* lado a lado */
@@ -43,10 +50,11 @@
     gap:16px;
   }
 
+  /* Sidebar: NO heredar anchos de escritorio y limitar a 38% */
   .side{
-    width:auto;              /* anula width:260px */
-    min-width:0;             /* anula min-width:220px */
-    flex:0 0 38%;            /* ~38% */
+    width:auto;              /* anula width fijo */
+    min-width:0;             /* anula min-width */
+    flex:0 0 38%;            /* ocupa ~38% */
     max-width:38%;
     box-sizing:border-box;
     height:auto;
@@ -54,16 +62,17 @@
     overflow:auto;
   }
 
+  /* Visor: toma el resto (~62%) */
   .main{
     min-width:0;
     flex:1 1 62%;
     max-width:62%;
     height:auto;
     min-height:auto;
-    display:flex; flex-direction:column;
   }
 
+  /* Base de alto para el iframe del visor */
   .main iframe{
-    min-height:70vh; /* valor robusto y compatible */
+    min-height:70svh;
   }
 }
