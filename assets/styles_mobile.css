@@ -1,10 +1,38 @@
-/* ======= Estilos para móviles ======= */
-
-/* --- Móvil vertical --- */
+/* ======= Móvil vertical (≤700px) ======= */
 @media (max-width:700px){
-  .layout{
+  .header{
     flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
   }
+
+  .brand{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: nowrap;
+    text-align: left;
+  }
+
+  .top-buttons{
+    order: 2;
+    width: 100%;
+    display: flex;
+    gap: 8px;
+  }
+  .top-buttons .open{
+    flex: 1 1 auto;
+    width: auto;
+  }
+
+  .acronym{ font-size:18px }
+  .expansion{ font-size:11px }
+
+  .layout{ flex-direction: column; }
+
+  /* Sidebar en móvil: ancho completo */
   .side{
     width:100%;
     box-sizing:border-box;
@@ -12,36 +40,52 @@
     min-height:auto;
     overflow:auto;
   }
+
   .main iframe{
     min-height:60vh;
   }
 }
 
-/* --- Móvil horizontal (landscape) --- */
-@media (max-width:900px) and (orientation: landscape){
+/* ======= Móvil horizontal (≤900px y min-aspect 1/1) ======= */
+@media (max-width:900px) and (min-aspect-ratio:1/1){
   .layout{
     display:flex;
-    flex-direction:row;
-    align-items:stretch;
+    flex-direction:row;      /* lado a lado */
+    align-items:stretch;     /* misma altura real */
     gap:16px;
   }
+
+  /* Sidebar: NO heredar anchos de escritorio y limitar a 38% */
   .side{
-    width:auto;
-    min-width:0;
-    flex:0 0 38%;
+    width:auto;              /* anula width fijo */
+    min-width:0;             /* anula min-width */
+    flex:0 0 38%;            /* ~38% */
     max-width:38%;
     box-sizing:border-box;
     height:auto;
     min-height:auto;
     overflow:auto;
   }
+
+  /* Visor: toma el resto (~62%) */
   .main{
+    min-width:0;
     flex:1 1 62%;
     max-width:62%;
     height:auto;
     min-height:auto;
+    display:flex; flex-direction:column;
   }
+
+  /* Base de alto para el iframe del visor */
   .main iframe{
     min-height:70svh;
+  }
+}
+
+/* Fallback si el navegador no soporta svh */
+@supports not (height:1svh){
+  @media (max-width:900px) and (min-aspect-ratio:1/1){
+    .main iframe{ min-height:70vh; }
   }
 }
