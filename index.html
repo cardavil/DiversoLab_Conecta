@@ -5,27 +5,23 @@
   <title>C.O.N.E.C.T.A</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Estilos (separados) -->
+  <!-- Cargar SIEMPRE los tres; cada uno usa sus propias media queries -->
   <link rel="stylesheet" href="./assets/styles_base.css">
-  <link rel="stylesheet" href="./assets/styles_desktop.css" media="(min-width:901px)">
-  <link rel="stylesheet" href="./assets/styles_mobiles.css"  media="(max-width:900px), (orientation: landscape)">
+  <link rel="stylesheet" href="./assets/styles_desktop.css">
+  <link rel="stylesheet" href="./assets/styles_mobiles.css">
 </head>
 <body>
   <div class="wrap" id="app">
-    <!-- Header -->
     <div id="header"></div>
 
-    <!-- Layout principal -->
     <div class="layout">
       <aside id="sidebar"></aside>
       <section class="main" id="viewer"></section>
     </div>
 
-    <!-- Footer -->
     <div id="footer"></div>
   </div>
 
-  <!-- JS sin type="module" para GitHub Pages -->
   <script src="./assets/main.js"></script>
 </body>
 </html>
