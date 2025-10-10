@@ -1,11 +1,22 @@
-/* ======= Escritorio (≥901px) ======= */
-@media (min-width:901px){
+/* ===== Escritorio / pantallas anchas ===== */
+@media (min-width: 901px){
+  /* Igualar alturas como en 3-HTML */
   .side{
-    height:auto;        /* anula fijos */
-    min-height:78vh;    /* mismo piso que el visor */
+    height:auto;        /* anula fijo */
+    min-height:78vh;    /* piso similar al visor */
     overflow:auto;
   }
   .main iframe{
-    min-height:78vh;    /* igual piso que el sidebar */
+    min-height:78vh;    /* piso igual al sidebar */
+  }
+}
+
+/* Header horizontal (fila) como 3-HTML en escritorios */
+@media (min-width: 701px){
+  .header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
   }
 }
