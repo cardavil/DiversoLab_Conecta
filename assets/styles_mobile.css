@@ -42,7 +42,7 @@
   }
 
   .main iframe{
-    min-height:60vh;
+    min-height:60vh; /* un poco menos que base para no pasar el viewport */
   }
 }
 
@@ -79,14 +79,7 @@
 
   /* Base de alto para el iframe del visor */
   .main iframe{
-    min-height:70svh;
+    min-height:70vh;   /* compatibilidad amplia */
+    min-height:70svh;  /* si el navegador soporta svh, usa este */
   }
 }
-
-/* Fallback si el navegador no soporta svh */
-@supports not (height:1svh){
-  @media (max-width:900px) and (min-aspect-ratio:1/1){
-    .main iframe{ min-height:70vh; }
-  }
-}
-
