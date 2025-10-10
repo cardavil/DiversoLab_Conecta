@@ -36,10 +36,7 @@ body{
 
 /* ======= Header ======= */
 .header{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:16px;
+  display:flex; align-items:center; justify-content:space-between; gap:16px;
 }
 .brand{ display:flex; align-items:center; gap:12px; }
 .brand img{ width:64px; height:64px; object-fit:contain; border-radius:8px; }
@@ -60,10 +57,7 @@ body{
 .acronym span:nth-child(11){ color:#fdda64; } /* T */
 .acronym span:nth-child(13){ color:#a2ddd2; } /* A */
 
-.expansion{
-  font-size:12px; opacity:.95; margin-top:2px;
-  text-transform:none; letter-spacing:.02em;
-}
+.expansion{ font-size:12px; opacity:.95; margin-top:2px; letter-spacing:.02em; }
 
 .top-buttons{ display:flex; gap:8px; }
 .open{
@@ -71,30 +65,17 @@ body{
   padding:8px 12px; cursor:pointer;
 }
 .open:hover{ background:var(--btn-hover); }
-/* outline compatible (evitamos color-mix problemático) */
+/* Evitamos color-mix por compatibilidad */
 .open.active{ outline:2px solid rgba(253,218,100,.6); }
 
 /* ======= Layout general ======= */
-.layout{
-  display:flex;
-  gap:16px;
-  margin-top:16px;
-}
-.side{
-  width:260px;
-  min-width:220px;
-  overflow:auto;
-}
-.main{
-  flex:1; min-width:0; display:flex; flex-direction:column;
-}
+.layout{ display:flex; gap:16px; margin-top:16px; }
+.side{ width:260px; min-width:220px; overflow:auto; }
+.main{ flex:1; min-width:0; display:flex; flex-direction:column; }
 
 /* ======= Sidebar ======= */
 .side{
-  background:var(--card);
-  border:1px solid var(--line);
-  border-radius:var(--radius);
-  padding:12px;
+  background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:12px;
 }
 .group{ margin-bottom:16px; }
 .group h3{
@@ -111,9 +92,7 @@ body{
 
 /* ======= Viewer ======= */
 .main{
-  background:var(--card);
-  border:1px solid var(--line);
-  border-radius:var(--radius);
+  background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
 }
 .viewer-head{
   display:flex; align-items:center; justify-content:space-between; gap:8px;
@@ -125,7 +104,7 @@ iframe{
   flex:1; width:100%; border:0;
   border-bottom-left-radius:var(--radius);
   border-bottom-right-radius:var(--radius);
-  /* alturas se afinan en desktop/móviles */
+  min-height:70vh; /* valor base igual que 3-HTML; overrides en desktop/móvil */
 }
 
 /* ======= Footer ======= */
