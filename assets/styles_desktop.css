@@ -1,15 +1,22 @@
 /* ======= Estilos para escritorio ======= */
 
-.layout {
+/* Igualar alturas de sidebar y visor */
+.layout{
   flex-direction: row;
   align-items: stretch;
 }
 
-#sidebar {
-  max-height: calc(100vh - 160px);
-  overflow-y: auto;
+.side{
+  height:auto;
+  min-height:78vh;
+  overflow:auto;
 }
 
-.main {
-  height: calc(100vh - 160px);
+.main iframe{
+  min-height:78vh;
+}
+
+/* Ajustes extra en pantallas grandes */
+@media (min-width:1200px){
+  .wrap{ max-width:1400px; }
 }
