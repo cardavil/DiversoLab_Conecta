@@ -3,9 +3,8 @@
 <head>
   <meta charset="utf-8">
   <title>C.O.N.E.C.T.A</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- Cargar SIEMPRE los tres; cada uno usa sus propias media queries -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Cargamos SIEMPRE los 3 CSS; cada uno trae sus propias @media -->
   <link rel="stylesheet" href="./assets/styles_base.css">
   <link rel="stylesheet" href="./assets/styles_desktop.css">
   <link rel="stylesheet" href="./assets/styles_mobiles.css">
@@ -15,13 +14,16 @@
     <div id="header"></div>
 
     <div class="layout">
-      <aside id="sidebar"></aside>
+      <aside class="side" id="sidebar"></aside>
+      <!-- IMPORTANTE: esta sección .main existe solo aquí;
+           el componente viewer.html NO vuelve a crear otra .main -->
       <section class="main" id="viewer"></section>
     </div>
 
     <div id="footer"></div>
   </div>
 
+  <!-- JS plano (sin type="module") para GitHub Pages -->
   <script src="./assets/main.js"></script>
 </body>
 </html>
