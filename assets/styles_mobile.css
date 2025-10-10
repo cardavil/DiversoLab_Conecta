@@ -7,32 +7,20 @@
   }
 
   .brand{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    flex-wrap: nowrap;
-    text-align: left;
+    display:flex; flex-direction:row; align-items:center; justify-content:center;
+    gap:10px; flex-wrap:nowrap; text-align:left;
   }
 
   .top-buttons{
-    order: 2;
-    width: 100%;
-    display: flex;
-    gap: 8px;
+    order:2; width:100%; display:flex; gap:8px;
   }
-  .top-buttons .open{
-    flex: 1 1 auto;
-    width: auto;
-  }
+  .top-buttons .open{ flex:1 1 auto; width:auto; }
 
-  .acronym{ font-size:18px }
-  .expansion{ font-size:11px }
+  .acronym{ font-size:18px; }
+  .expansion{ font-size:11px; }
 
-  .layout{ flex-direction: column; }
+  .layout{ flex-direction:column; }
 
-  /* Sidebar en móvil: ancho completo */
   .side{
     width:100%;
     box-sizing:border-box;
@@ -42,12 +30,12 @@
   }
 
   .main iframe{
-    min-height:60vh; /* un poco menos que base para no pasar el viewport */
+    min-height:60vh; /* para no pasar el viewport en vertical */
   }
 }
 
-/* ======= Móvil horizontal (≤900px y min-aspect 1/1) ======= */
-@media (max-width:900px) and (min-aspect-ratio:1/1){
+/* ======= Móvil horizontal (≤900px, paisaje) ======= */
+@media (max-width:900px) and (orientation:landscape){
   .layout{
     display:flex;
     flex-direction:row;      /* lado a lado */
@@ -55,7 +43,6 @@
     gap:16px;
   }
 
-  /* Sidebar: NO heredar anchos de escritorio y limitar a 38% */
   .side{
     width:auto;              /* anula width:260px */
     min-width:0;             /* anula min-width:220px */
@@ -67,7 +54,6 @@
     overflow:auto;
   }
 
-  /* Visor: toma el resto (~62%) */
   .main{
     min-width:0;
     flex:1 1 62%;
@@ -77,9 +63,7 @@
     display:flex; flex-direction:column;
   }
 
-  /* Base de alto para el iframe del visor */
   .main iframe{
-    min-height:70vh;   /* compatibilidad amplia */
-    min-height:70svh;  /* si el navegador soporta svh, usa este */
+    min-height:70vh; /* valor robusto y compatible */
   }
 }
