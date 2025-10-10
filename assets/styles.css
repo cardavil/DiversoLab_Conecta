@@ -1,1 +1,51 @@
+/* ======= Tokens base ======= */
+:root {
+  --bg-base:#ffffff;
+  --bg-a:#fdda64;
+  --bg-b:#cad2e9;
+  --text:#3f2b56;
+  --card:#ffffffee;
+  --line:#e3e6ef;
+  --btn:#fdda64;
+  --btn-text:#3f2b56;
+  --btn-hover:#cad2e9;
+  --radius:14px;
+}
+
+/* ======= Fondo y tipografía ======= */
+body {
+  margin:0;
+  color:var(--text);
+  font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto;
+  background: var(--bg-base);
+  background-image: linear-gradient(180deg, var(--bg-a) 0%, var(--bg-b) 100%);
+  background-attachment: fixed;
+}
+
+/* ======= Layout general ======= */
+.wrap{ max-width:1200px; margin:24px auto; padding:0 16px; }
+.header,.side,.main,.footer{ background:var(--card); border:1px solid var(--line); border-radius:var(--radius); }
+.header,.side,.main{ padding:12px; }
+.layout{ display:flex; gap:16px; margin-top:16px; flex-wrap:wrap; }
+.side{ flex:1 1 260px; min-width:220px; overflow:auto; }
+.main{ flex:3 1 600px; display:flex; flex-direction:column; }
+
+/* ======= Viewer ======= */
+.viewer-head{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px 12px;border-bottom:1px solid var(--line);}
+.viewer-title{margin:0;font-size:15px;}
+iframe{flex:1;width:100%;border:0;border-bottom-left-radius:var(--radius);border-bottom-right-radius:var(--radius);min-height:70vh;}
+
+/* ======= Footer ======= */
+.footer{ text-align:center; margin-top:16px; color:#5b4a6e; padding:8px; }
+.footer a{ color:inherit; text-decoration:underline }
+
+/* ======= Botones ======= */
+.open{background:var(--btn);color:var(--btn-text);border:none;border-radius:10px;padding:8px 12px;cursor:pointer;}
+.open:hover{background:var(--btn-hover);}
+.open.active{outline:2px solid color-mix(in srgb, var(--btn) 45%, transparent);}
+.item-btn{width:100%;text-align:left;border:1px solid var(--line);background:white;border-radius:12px;padding:10px 12px;cursor:pointer;color:var(--text);}
+.item-btn:hover{border-color:#d1d6ea;background:#fafbff;}
+.item-btn.active{outline:2px solid color-mix(in srgb, var(--btn) 50%, transparent);}
+.group{margin-bottom:16px;}
+.group h3{margin:8px 8px 6px;font-size:14px;letter-spacing:.2px;opacity:.9;border-left:4px solid var(--btn);padding-left:8px;}
 
