@@ -1,0 +1,68 @@
+/* Móvil vertical (≤700px): apilado */
+@media (max-width:700px){
+  .header{ flex-direction:column; align-items:stretch; gap:8px; }
+
+  .brand{
+    display:flex; flex-direction:row; align-items:center;
+    justify-content:center; gap:10px; text-align:left;
+  }
+
+  .top-buttons{ order:2; width:100%; display:flex; gap:8px; }
+  .top-buttons .open{ flex:1 1 auto; width:auto; }
+
+  .acronym{ font-size:18px; }
+  .expansion{ font-size:11px; }
+
+  .layout{ flex-direction:column; }
+
+  .side{
+    width:100%; box-sizing:border-box;
+    height:auto; min-height:auto; overflow:auto;
+  }
+
+  .main iframe{
+    min-height:calc(70vh - var(--viewerhead));
+  }
+}
+
+/* Móvil horizontal (landscape): dos columnas 38% / 62% con alturas iguales */
+@media (orientation: landscape) and (max-width:1200px){
+  .layout{
+    flex-direction:row;
+    align-items:stretch; /* iguala alturas reales */
+    gap:16px;
+  }
+
+  .side{
+    width:auto; min-width:0;
+    flex:0 0 38%; max-width:38%;
+    box-sizing:border-box;
+    height:auto; min-height:70svh; /* alto estable */
+    overflow:auto;
+    scrollbar-gutter: stable both-edges; /* evita “saltitos” por scrollbar */
+  }
+
+  .main{
+    min-width:0;
+    flex:1 1 62%; max-width:62%;
+    height:auto; min-height:auto;
+    display:flex; flex-direction:column;
+  }
+
+  .viewer-head{
+    flex:0 0 var(--viewerhead);
+    min-height:var(--viewerhead);
+  }
+
+  .main iframe{
+    min-height:calc(70svh - var(--viewerhead)); /* iguala con sidebar */
+  }
+}
+
+/* Fallback si el navegador no soporta svh */
+@supports not (height:1svh){
+  @media (orientation: landscape) and (max-width:1200px){
+    .side{ min-height:70vh; }
+    .main iframe{ min-height:calc(70vh - var(--viewerhead)); }
+  }
+}
