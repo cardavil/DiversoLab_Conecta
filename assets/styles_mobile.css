@@ -57,8 +57,8 @@
 
   /* Sidebar: NO heredar anchos de escritorio y limitar a 38% */
   .side{
-    width:auto;              /* anula width fijo */
-    min-width:0;             /* anula min-width */
+    width:auto;              /* anula width:260px */
+    min-width:0;             /* anula min-width:220px */
     flex:0 0 38%;            /* ~38% */
     max-width:38%;
     box-sizing:border-box;
@@ -89,3 +89,4 @@
     .main iframe{ min-height:70vh; }
   }
 }
+
