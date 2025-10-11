@@ -6,6 +6,7 @@
     align-items: stretch;
     gap: 8px;
   }
+
   .header .brand{
     display:flex;
     flex-direction: row;
@@ -15,16 +16,20 @@
     flex-wrap: nowrap;
     text-align: left;
   }
+
   .header .top-buttons{
     order: 2;
     width: 100%;
     display: flex;
     gap: 8px;
+    justify-content: center;   /* <-- centra los botones */
+    flex-wrap: nowrap;         /* <-- evita saltos/segundas filas */
   }
   .header .top-buttons .open{
     flex: 1 1 auto;
     width: auto;
   }
+
   .header .acronym{ font-size:18px }
   .header .expansion{ font-size:11px }
 
@@ -48,6 +53,25 @@
     flex-direction:row;      /* lado a lado */
     align-items:stretch;     /* misma altura real */
     gap:16px;
+  }
+
+  /* Header vuelve a fila (logo izq / botones der), como escritorio */
+  .header{
+    flex-direction: row;                /* <-- importante en landscape */
+    align-items: center;
+    justify-content: space-between;
+  }
+  .header .top-buttons{
+    order: 0;                           /* vuelve a su posición natural */
+    width: auto;                        /* sin ancho completo */
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
+    flex-wrap: nowrap;
+  }
+  .header .top-buttons .open{
+    flex: 0 0 auto;                     /* no se estira a todo el ancho */
+    width: auto;
   }
 
   /* Sidebar: NO heredar anchos de escritorio y limitar a 38% */
