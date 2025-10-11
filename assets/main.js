@@ -15,7 +15,7 @@ async function loadComponent(containerId, file) {
 const params = new URLSearchParams(location.search);
 const page = params.get("p") || "formularios"; // "formularios" | "visualizaciones"
 const STORAGE_KEYS = {
-  formularios: "intralink_last",
+  formularios: "conecta_last_form",
   visualizaciones: "conecta_last_viz",
 };
 
