@@ -1,23 +1,21 @@
 /* ===== Escritorio / pantallas anchas ===== */
-@media (min-width: 901px){
-  
+@media (min-width:901px){
+  /* Igualar alturas como en la versión 3-HTML */
   .side{
-    height:auto;        /* anula fijo */
-    min-height:78vh;    /* piso similar al visor */
+    height:auto;            /* anula fijo */
+    min-height:78vh;        /* piso visual similar al visor */
     overflow:auto;
   }
   .main iframe{
-    min-height:78vh;    /* piso igual al sidebar */
+    min-height:78vh;        /* igual piso que el sidebar */
   }
-}
-/note --> Igualar alturas como en 3-HTML */
 
-/* Header horizontal (fila) como 3-HTML en escritorios */
-@media (min-width: 701px){
+  /* Header horizontal “logo a izq / botones a der” */
   .header{
-    display:flex;
+    flex-direction:row;
     align-items:center;
     justify-content:space-between;
-    gap:16px;
   }
+  .header .brand{justify-content:flex-start}
+  .header .top-buttons{justify-content:flex-end}
 }
