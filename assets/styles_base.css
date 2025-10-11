@@ -30,12 +30,24 @@ body {
 .wrap{ max-width:1200px; margin:24px auto; padding:0 16px; }
 
 /* Los bordes y fondo de las cajas principales se aplican AQUÍ (no dentro de componentes) */
-.header,.side,.main,.footer{
+.header,.side,.main{
   background:var(--card);
   border:1px solid var(--line);
   border-radius:var(--radius);
+  padding:12px;
 }
-.header,.side,.main{ padding:12px; }
+
+/* Footer SIN recuadro */
+.footer{
+  text-align:center;
+  margin-top:16px;
+  color:#5b4a6e;
+  padding:8px 0;          /* puedes dejar 8px 0 o el valor que prefieras */
+  background:transparent; /* sin caja */
+  border:0;
+  border-radius:0;
+}
+.footer a{ color:inherit; text-decoration:underline; }
 
 /* Grid/flex base de la zona principal */
 .layout{
