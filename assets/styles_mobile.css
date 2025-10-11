@@ -1,51 +1,3 @@
-/* --- Móvil vertical: igual al 3-HTML --- */
-@media (max-width:700px){
-  .header{
-    display:flex;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 8px;
-  }
-
-  .header .brand{
-    display:flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    flex-wrap: nowrap;
-    text-align: left;
-  }
-
-  .header .top-buttons{
-    order: 2;
-    width: 100%;
-    display: flex;
-    gap: 8px;
-    justify-content: center;   /* <-- centra los botones */
-    flex-wrap: nowrap;         /* <-- evita saltos/segundas filas */
-  }
-  .header .top-buttons .open{
-    flex: 1 1 auto;
-    width: auto;
-  }
-
-  .header .acronym{ font-size:18px }
-  .header .expansion{ font-size:11px }
-
-  /* Apilado vertical */
-  .layout{ flex-direction: column; }
-
-  /* Sidebar en móvil: ancho completo */
-  .side{
-    width:100%;
-    box-sizing:border-box;
-    height:auto;
-    min-height:auto;
-    overflow:auto;
-  }
-}
-
 /* ===== Móvil horizontal (apaisado): DOS columnas como 3-HTML ===== */
 @media (max-width:900px) and (min-aspect-ratio:1/1){
   .layout{
@@ -53,32 +5,15 @@
     flex-direction:row;      /* lado a lado */
     align-items:stretch;     /* misma altura real */
     gap:16px;
+    flex-wrap: nowrap;       /* <-- evita que el viewer salte debajo */
+    min-width: 0;            /* seguridad */
   }
 
-  /* Header vuelve a fila (logo izq / botones der), como escritorio */
-  .header{
-    flex-direction: row;                /* <-- importante en landscape */
-    align-items: center;
-    justify-content: space-between;
-  }
-  .header .top-buttons{
-    order: 0;                           /* vuelve a su posición natural */
-    width: auto;                        /* sin ancho completo */
-    display: flex;
-    gap: 8px;
-    justify-content: flex-end;
-    flex-wrap: nowrap;
-  }
-  .header .top-buttons .open{
-    flex: 0 0 auto;                     /* no se estira a todo el ancho */
-    width: auto;
-  }
-
-  /* Sidebar: NO heredar anchos de escritorio y limitar a 38% */
+  /* Sidebar: permitir que se encoja si hace falta */
   .side{
-    width:auto;              /* anula width fijo */
-    min-width:0;             /* anula min-width */
-    flex:0 0 38%;            /* ocupa ~38% */
+    width:auto;
+    min-width:0;             /* <-- importante para que pueda reducirse */
+    flex:0 1 38%;            /* <-- antes era 0 0 38% (no podía encogerse) */
     max-width:38%;
     box-sizing:border-box;
     height:auto;
@@ -86,10 +21,10 @@
     overflow:auto;
   }
 
-  /* Visor: toma el resto (~62%) */
+  /* Visor: ocupa el resto, también encogible */
   .main{
-    min-width:0;
-    flex:1 1 62%;
+    min-width:0;             /* <-- evita overflow que empuja a otra línea */
+    flex:1 1 62%;            /* <-- puede encogerse junto con el gap */
     max-width:62%;
     height:auto;
     min-height:auto;
