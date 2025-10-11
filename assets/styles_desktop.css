@@ -1,6 +1,6 @@
 /* ===== Escritorio / pantallas anchas ===== */
 @media (min-width: 901px){
-  /* Igualar alturas como en 3-HTML */
+  
   .side{
     height:auto;        /* anula fijo */
     min-height:78vh;    /* piso similar al visor */
@@ -10,6 +10,7 @@
     min-height:78vh;    /* piso igual al sidebar */
   }
 }
+/note --> Igualar alturas como en 3-HTML */
 
 /* Header horizontal (fila) como 3-HTML en escritorios */
 @media (min-width: 701px){
