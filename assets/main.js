@@ -68,29 +68,6 @@ const STORAGE_KEYS = {
     // aplicar en visor
     if (viewerTitle) viewerTitle.textContent = title;
     if (iframe) iframe.src = url || "";
-    //Ajuste Power BI: Inicio
-    if (iframe) {
-      const wrapper = iframe.parentElement;
-      if (url && url.includes("app.powerbi.com")) {
-        iframe.style.height = "";
-        iframe.style.width = "1140px";
-        iframe.style.minWidth = "1140px";
-        if (wrapper) {
-          wrapper.style.overflowX = "auto";
-          wrapper.style.overflowY = "hidden";
-         }
-      } else {
-        iframe.style.width = "100%";
-        iframe.style.minWidth = "";
-        iframe.style.height = "";
-        if (wrapper) {
-          wrapper.style.overflowX = "visible";
-          wrapper.style.overflowY = "visible";
-        }
-      }
-    }
-    //Ajuste Power BI: final
-
     if (openNew) {
       openNew.disabled = !url;
       openNew.onclick = () => url && window.open(url, "_blank");
