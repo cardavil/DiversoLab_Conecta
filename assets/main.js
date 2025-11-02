@@ -67,7 +67,28 @@ const STORAGE_KEYS = {
 
     // aplicar en visor
     if (viewerTitle) viewerTitle.textContent = title;
-    if (iframe) iframe.src = url || "";
+
+    if (iframe) {
+      iframe.src = url || "";
+
+      // Ajuste solo si es un dashboard de Power BI
+      const wrapper = iframe.parentElement;
+      if (url.includes("app.powerbi.com")) {
+        wrapper.style.overflowX = "auto";   // permite scroll lateral
+        wrapper.style.overflowY = "hidden";
+        iframe.style.width = "1140px";      // ancho real del embed Power BI
+        iframe.style.minWidth = "1140px";
+        iframe.style.height = "70vh";       // respeta tu alto base
+      } else {
+      // todo lo demás (Looker, PDFs, etc.) se comporta igual que siempre
+        wrapper.style.overflowX = "visible";
+        wrapper.style.overflowY = "visible";
+        iframe.style.width = "100%";
+        iframe.style.minWidth = "";
+        iframe.style.height = "70vh";
+      }
+    }
+
     if (openNew) {
       openNew.disabled = !url;
       openNew.onclick = () => url && window.open(url, "_blank");
