@@ -102,3 +102,23 @@
     min-height:70svh;
   }
 }
+
+/* ===== VISOR UNIVERSAL (Power BI, Looker, PDF, etc.) ===== */
+@media (max-width: 900px) {
+  .main,
+  .viewer,
+  .viewer-body {
+    overflow-x: auto;   /* permite desplazamiento lateral si el embed es ancho */
+    overflow-y: hidden;
+  }
+
+  .main iframe,
+  .viewer iframe,
+  #viewer {
+    height: 70vh;       /* manda el alto, mantiene proporción */
+    width: 1280px;      /* ancho fijo base de dashboard */
+    min-width: 1280px;  /* evita que se encoja al ancho del teléfono */
+    max-width: none;
+    display: block;
+  }
+}
