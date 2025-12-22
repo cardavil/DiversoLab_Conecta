@@ -69,36 +69,39 @@ body {
   border-radius:10px;
   padding:8px 12px;
   cursor:pointer;
+
+  /* normalize typography + remove link underline if used on <a> */
+  font:inherit;
+  text-decoration:none;
 }
+
 .open:hover{ background:var(--btn-hover); }
 .open.active{ outline:2px solid color-mix(in srgb, var(--btn) 45%, transparent); }
 
-/* Normalize <a class="open"> to look like <button class="open"> */
+/* Make <a class="open"> behave like a button visually */
 a.open{
   display:inline-flex;
   align-items:center;
   justify-content:center;
 
-  font:inherit;
   font-style:normal;
   font-weight:inherit;
   letter-spacing:inherit;
 
   text-decoration:none;
   color:var(--btn-text);
-
-  background:var(--btn);
-  border:none;
-  border-radius:10px;
-  padding:8px 12px;
-  cursor:pointer;
 }
 
-a.open:hover{
-  background:var(--btn-hover);
+/* Remove underline in all link states (this fixes your screenshot) */
+a.open:visited,
+a.open:hover,
+a.open:active,
+a.open:focus{
+  text-decoration:none;
+  color:var(--btn-text);
 }
 
-/* Disabled state for Edit link */
+/* Disabled state for Edit link (if you use aria-disabled) */
 a.open[aria-disabled="true"]{
   pointer-events:none;
   opacity:.6;
@@ -139,6 +142,15 @@ a.open[aria-disabled="true"]{
   border-bottom:1px solid var(--line);
 }
 .viewer-title{ margin:0; font-size:15px; }
+
+/* NEW: container for the viewer buttons */
+.viewer-actions{
+  display:flex;
+  gap:8px;
+  align-items:center;
+  flex-wrap:wrap;
+}
+
 iframe{
   flex:1;
   width:100%;
