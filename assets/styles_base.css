@@ -63,36 +63,42 @@ body {
 
 /* ======= Botones ======= */
 .open{
+  /* Make <button.open> and <a.open> identical */
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  box-sizing:border-box;
+
   background:var(--btn);
   color:var(--btn-text);
-  border:none;
+  border:0;
   border-radius:10px;
   padding:8px 12px;
-  cursor:pointer;
 
-  /* critical: neutralize link styling when .open is used on <a> */
   font:inherit;
+  line-height:1;          /* critical: same height across <a> + <button> */
   text-decoration:none;
+
+  cursor:pointer;
+  -webkit-appearance:none; /* helps Safari */
+  appearance:none;
 }
 
-/* Hover state */
 .open:hover{
   background:var(--btn-hover);
 }
 
-/* Active outline (used in header) */
 .open.active{
   outline:2px solid color-mix(in srgb, var(--btn) 45%, transparent);
 }
 
-/* Ensure <a class="open"> NEVER changes font/color in any state */
+/* Ensure <a class="open"> NEVER reverts to link styling */
 a.open,
 a.open:link,
 a.open:visited,
 a.open:hover,
 a.open:active,
 a.open:focus{
-  font:inherit;
   color:var(--btn-text);
   text-decoration:none;
 }
@@ -101,7 +107,6 @@ a.open:focus{
 a.open[aria-disabled="true"]{
   pointer-events:none;
   opacity:.6;
-  color:var(--btn-text);
 }
 
 /* ======= Listas del sidebar ======= */
