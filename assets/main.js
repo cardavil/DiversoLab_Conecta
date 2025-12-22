@@ -1,4 +1,4 @@
-// ===================== util: cargar componentes HTML =====================
+ce// ===================== util: cargar componentes HTML =====================
 async function loadComponent(containerId, file) {
   const el = document.getElementById(containerId);
   try {
@@ -86,7 +86,7 @@ const STORAGE_KEYS = {
         try {
           await navigator.clipboard.writeText(url);
           copyLink.textContent = "¡Copiado!";
-          setTimeout(() => (copyLink.textContent = "Copiar link"), 900);
+          setTimeout(() => (copyLink.textContent = "Copiar Enlace"), 900);
         } catch (e) {
           prompt("Copia el enlace:", url);
         }
