@@ -70,17 +70,38 @@ body {
   padding:8px 12px;
   cursor:pointer;
 
-  /* key fix: remove underline if used on <a> */
+  /* critical: neutralize link styling when .open is used on <a> */
+  font:inherit;
   text-decoration:none;
 }
 
-.open:hover{ background:var(--btn-hover); }
-.open.active{ outline:2px solid color-mix(in srgb, var(--btn) 45%, transparent); }
+/* Hover state */
+.open:hover{
+  background:var(--btn-hover);
+}
 
-/* Disabled state for Edit link */
+/* Active outline (used in header) */
+.open.active{
+  outline:2px solid color-mix(in srgb, var(--btn) 45%, transparent);
+}
+
+/* Ensure <a class="open"> NEVER changes font/color in any state */
+a.open,
+a.open:link,
+a.open:visited,
+a.open:hover,
+a.open:active,
+a.open:focus{
+  font:inherit;
+  color:var(--btn-text);
+  text-decoration:none;
+}
+
+/* Disabled state for Editar Formulario */
 a.open[aria-disabled="true"]{
   pointer-events:none;
   opacity:.6;
+  color:var(--btn-text);
 }
 
 /* ======= Listas del sidebar ======= */
