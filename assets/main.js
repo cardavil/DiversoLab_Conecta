@@ -1,4 +1,4 @@
-ce// ===================== util: cargar componentes HTML =====================
+// ===================== util: cargar componentes HTML =====================
 async function loadComponent(containerId, file) {
   const el = document.getElementById(containerId);
   try {
