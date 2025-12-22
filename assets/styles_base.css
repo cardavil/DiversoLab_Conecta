@@ -63,7 +63,7 @@ body {
 
 /* ======= Botones ======= */
 .open{
-  /* Make <button.open> and <a.open> identical */
+  /* unify <button> and <a> metrics */
   display:inline-flex;
   align-items:center;
   justify-content:center;
@@ -75,13 +75,16 @@ body {
   border-radius:10px;
   padding:8px 12px;
 
-  font:inherit;
-  line-height:1;          /* critical: same height across <a> + <button> */
+  /* unify typography */
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: 1;
   text-decoration:none;
 
   cursor:pointer;
-  -webkit-appearance:none; /* helps Safari */
   appearance:none;
+  -webkit-appearance:none;
 }
 
 .open:hover{
@@ -92,13 +95,16 @@ body {
   outline:2px solid color-mix(in srgb, var(--btn) 45%, transparent);
 }
 
-/* Ensure <a class="open"> NEVER reverts to link styling */
+/* Ensure <a class="open"> NEVER changes in any state */
 a.open,
 a.open:link,
 a.open:visited,
 a.open:hover,
 a.open:active,
 a.open:focus{
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
   color:var(--btn-text);
   text-decoration:none;
 }
