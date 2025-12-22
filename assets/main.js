@@ -95,9 +95,15 @@ const STORAGE_KEYS = {
 
     // Editar formulario
     if (editForm) {
-      editForm.disabled = !edit;
-      editForm.onclick = () => edit && window.open(edit, "_blank");
+      if (edit) {
+        editForm.setAttribute("href", edit);
+        editForm.setAttribute("aria-disabled", "false");
+      } else {
+        editForm.setAttribute("href", "");
+        editForm.setAttribute("aria-disabled", "true");
+      }
     }
+
 
     // persistencia
     const key = STORAGE_KEYS[page];
