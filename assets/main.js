@@ -54,6 +54,8 @@ const STORAGE_KEYS = {
   const iframe = document.getElementById("viewer");           // iframe verdadero
   const viewerTitle = document.getElementById("viewerTitle");
   const openNew = document.getElementById("openNew");
+  const copyLink = document.getElementById("copyLink");
+  const editForm = document.getElementById("editForm");
   const sidebar = document.getElementById("sidebar");
 
   function select(btn){
@@ -64,22 +66,46 @@ const STORAGE_KEYS = {
     // datos
     const title = btn.dataset.title || "";
     const url   = btn.dataset.url || "";
+    const edit  = btn.dataset.edit || "";
 
     // aplicar en visor
     if (viewerTitle) viewerTitle.textContent = title;
     if (iframe) iframe.src = url || "";
+
+    // Abrir en pestaña nueva
     if (openNew) {
       openNew.disabled = !url;
       openNew.onclick = () => url && window.open(url, "_blank");
     }
-      
-    // persistencia (igual que versión 3-HTML)
+
+    // Copiar link
+    if (copyLink) {
+      copyLink.disabled = !url;
+      copyLink.onclick = async () => {
+        if (!url) return;
+        try {
+          await navigator.clipboard.writeText(url);
+          copyLink.textContent = "¡Copiado!";
+          setTimeout(() => (copyLink.textContent = "Copiar link"), 900);
+        } catch (e) {
+          prompt("Copia el enlace:", url);
+        }
+      };
+    }
+
+    // Editar formulario
+    if (editForm) {
+      editForm.disabled = !edit;
+      editForm.onclick = () => edit && window.open(edit, "_blank");
+    }
+
+    // persistencia
     const key = STORAGE_KEYS[page];
     if (key) {
       localStorage.setItem(key, JSON.stringify({ title, url }));
     }
   }
-
+  
   // Delegación: cualquier click en un botón del sidebar
   if (sidebar) {
     sidebar.addEventListener("click", (e) => {
