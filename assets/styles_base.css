@@ -42,8 +42,8 @@ body {
   text-align:center;
   margin-top:16px;
   color:#5b4a6e;
-  padding:8px 0;          /* sin caja, solo respiro vertical */
-  background:transparent; /* sin recuadro */
+  padding:8px 0;
+  background:transparent;
   border:0;
   border-radius:0;
 }
@@ -54,10 +54,10 @@ body {
   display:flex;
   gap:16px;
   margin-top:16px;
-  flex-wrap:wrap; /* base móvil: se apilan */
+  flex-wrap:wrap;
 }
 
-/* Columnas base (se ajustan con media queries en los otros CSS) */
+/* Columnas base */
 .side{ flex:1 1 260px; min-width:220px; overflow:auto; }
 .main{ flex:3 1 600px; display:flex; flex-direction:column; }
 
@@ -70,38 +70,14 @@ body {
   padding:8px 12px;
   cursor:pointer;
 
-  /* normalize typography + remove link underline if used on <a> */
-  font:inherit;
+  /* key fix: remove underline if used on <a> */
   text-decoration:none;
 }
 
 .open:hover{ background:var(--btn-hover); }
 .open.active{ outline:2px solid color-mix(in srgb, var(--btn) 45%, transparent); }
 
-/* Make <a class="open"> behave like a button visually */
-a.open{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-
-  font-style:normal;
-  font-weight:inherit;
-  letter-spacing:inherit;
-
-  text-decoration:none;
-  color:var(--btn-text);
-}
-
-/* Remove underline in all link states (this fixes your screenshot) */
-a.open:visited,
-a.open:hover,
-a.open:active,
-a.open:focus{
-  text-decoration:none;
-  color:var(--btn-text);
-}
-
-/* Disabled state for Edit link (if you use aria-disabled) */
+/* Disabled state for Edit link */
 a.open[aria-disabled="true"]{
   pointer-events:none;
   opacity:.6;
@@ -143,7 +119,6 @@ a.open[aria-disabled="true"]{
 }
 .viewer-title{ margin:0; font-size:15px; }
 
-/* NEW: container for the viewer buttons */
 .viewer-actions{
   display:flex;
   gap:8px;
@@ -157,10 +132,10 @@ iframe{
   border:0;
   border-bottom-left-radius:var(--radius);
   border-bottom-right-radius:var(--radius);
-  min-height:70vh; /* base */
+  min-height:70vh;
 }
 
-/* ======= Header interno (estructura horizontal como 3-HTML) ======= */
+/* ======= Header interno ======= */
 .header{
   display:flex;
   align-items:center;
@@ -171,17 +146,27 @@ iframe{
 .header .brand img{ width:64px; height:64px; object-fit:contain; border-radius:8px; }
 .header .title{ display:flex; flex-direction:column; line-height:1.12; }
 .header .acronym{
-  font-weight:800; font-size:22px; letter-spacing:.08em;
-  display:flex; align-items:center; gap:.25em; text-transform:uppercase;
+  font-weight:800;
+  font-size:22px;
+  letter-spacing:.08em;
+  display:flex;
+  align-items:center;
+  gap:.25em;
+  text-transform:uppercase;
 }
 .header .acronym .l{ display:inline-block }
 .header .acronym .dot{ opacity:.55 }
-.header .acronym span:nth-child(1){ color:#fdda64; }  /* C */
-.header .acronym span:nth-child(3){ color:#a2ddd2; }  /* O */
-.header .acronym span:nth-child(5){ color:#cad2e9; }  /* N */
-.header .acronym span:nth-child(7){ color:#ff8e6f; }  /* E */
-.header .acronym span:nth-child(9){ color:#3f2b56; }  /* C */
-.header .acronym span:nth-child(11){ color:#fdda64; } /* T */
-.header .acronym span:nth-child(13){ color:#a2ddd2; } /* A */
-.header .expansion{ font-size:12px; opacity:.95; margin-top:2px; letter-spacing:.02em; }
+.header .acronym span:nth-child(1){ color:#fdda64; }
+.header .acronym span:nth-child(3){ color:#a2ddd2; }
+.header .acronym span:nth-child(5){ color:#cad2e9; }
+.header .acronym span:nth-child(7){ color:#ff8e6f; }
+.header .acronym span:nth-child(9){ color:#3f2b56; }
+.header .acronym span:nth-child(11){ color:#fdda64; }
+.header .acronym span:nth-child(13){ color:#a2ddd2; }
+.header .expansion{
+  font-size:12px;
+  opacity:.95;
+  margin-top:2px;
+  letter-spacing:.02em;
+}
 .header .top-buttons{ display:flex; gap:8px; }
