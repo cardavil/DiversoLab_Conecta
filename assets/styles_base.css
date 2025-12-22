@@ -73,6 +73,37 @@ body {
 .open:hover{ background:var(--btn-hover); }
 .open.active{ outline:2px solid color-mix(in srgb, var(--btn) 45%, transparent); }
 
+/* Normalize <a class="open"> to look like <button class="open"> */
+a.open{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+
+  font:inherit;
+  font-style:normal;
+  font-weight:inherit;
+  letter-spacing:inherit;
+
+  text-decoration:none;
+  color:var(--btn-text);
+
+  background:var(--btn);
+  border:none;
+  border-radius:10px;
+  padding:8px 12px;
+  cursor:pointer;
+}
+
+a.open:hover{
+  background:var(--btn-hover);
+}
+
+/* Disabled state for Edit link */
+a.open[aria-disabled="true"]{
+  pointer-events:none;
+  opacity:.6;
+}
+
 /* ======= Listas del sidebar ======= */
 .group{ margin-bottom:16px; }
 .group h3{
