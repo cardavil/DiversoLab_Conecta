@@ -78,7 +78,7 @@ const STORAGE_KEYS = {
       openNew.onclick = () => url && window.open(url, "_blank");
     }
 
-    // Copiar link
+    // Copiar Enlace
     if (copyLink) {
       copyLink.disabled = !url;
       copyLink.onclick = async () => {
