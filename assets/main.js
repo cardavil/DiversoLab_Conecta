@@ -104,7 +104,6 @@ const STORAGE_KEYS = {
       }
     }
 
-
     // persistencia
     const key = STORAGE_KEYS[page];
     if (key) {
