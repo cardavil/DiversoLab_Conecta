@@ -21,7 +21,7 @@
   --text-xs: 12px;
   --text-sm: 14px;
   --text-md: 14px; /* Base body + buttons */
-  --text-lg: 18px; /* Subtitles, section titles, viewer title */
+  --text-lg: 16px; /* Subtitles, section titles, viewer title */
   --text-xl: 24px; /* Acronym C·O·N·E·C·T·A */
 
   /* Weights */
