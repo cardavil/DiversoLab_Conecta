@@ -1,14 +1,14 @@
-/* --- Móvil vertical --- */
-@media (max-width:700px){
-  .header{
-    display:flex;
+/* --- Mobile portrait --- */
+@media (max-width: 700px) {
+  .header {
+    display: flex;
     flex-direction: column;
     align-items: stretch;
     gap: 8px;
   }
 
-  .header .brand{
-    display:flex;
+  .header .brand {
+    display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
@@ -17,56 +17,61 @@
     text-align: left;
   }
 
-  .header .top-buttons{
+  .header .top-buttons {
     order: 2;
     width: 100%;
     display: flex;
     gap: 8px;
-    justify-content: center; /* centra los botones */
-    flex-wrap: nowrap; /* evita saltos o doble fila */
+    justify-content: center;
+    flex-wrap: nowrap;
   }
 
-  .header .top-buttons .open{
+  .header .top-buttons .open {
     flex: 1 1 auto;
     width: auto;
   }
 
-  /* Tipografía header en móvil */
-  .header .acronym{ font-size: var(--text-xl); }
-  .header .expansion{ font-size: var(--text-xs); }
+  /* Keep acronym at main size on mobile */
+  .header .acronym {
+    font-size: var(--text-xl); /* 24px */
+  }
 
-  /* Apilado vertical (layout una sola columna) */
-  .layout{ flex-direction: column; }
+  /* Keep subtitle consistent with desktop: 18px bold */
+  .header .expansion {
+    font-size: var(--text-lg); /* 18px */
+  }
 
-  /* Sidebar ancho completo */
-  .side{
-    width:100%;
-    box-sizing:border-box;
-    height:auto;
-    min-height:auto;
-    overflow:auto;
+  .layout {
+    flex-direction: column;
+  }
+
+  .side {
+    width: 100%;
+    box-sizing: border-box;
+    height: auto;
+    min-height: auto;
+    overflow: auto;
   }
 }
 
-/* ===== Móvil horizontal (apaisado): DOS columnas como 3-HTML ===== */
-@media (max-width:900px) and (min-aspect-ratio:1/1){
-  .layout{
-    display:flex;
-    flex-direction:row; /* lado a lado */
-    align-items:stretch; /* misma altura real */
-    gap:16px;
-    flex-wrap: nowrap; /* evita que el visor salte debajo */
+/* --- Mobile landscape (wide) --- */
+@media (max-width: 900px) and (min-aspect-ratio: 1/1) {
+  .layout {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    gap: 16px;
+    flex-wrap: nowrap;
     min-width: 0;
   }
 
-  /* Header: en fila, logo a izq y botones a der */
-  .header{
+  .header {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
   }
 
-  .header .top-buttons{
+  .header .top-buttons {
     order: 0;
     width: auto;
     display: flex;
@@ -75,32 +80,31 @@
     flex-wrap: nowrap;
   }
 
-  .header .top-buttons .open{
+  .header .top-buttons .open {
     flex: 0 0 auto;
     width: auto;
   }
 
-  /* Sidebar flexible (~38%) */
-  .side{
-    width:auto;
-    min-width:0;
-    flex:0 1 38%; /* puede encogerse si falta espacio */
-    max-width:38%;
-    box-sizing:border-box;
-    height:auto;
-    min-height:auto;
-    overflow:auto;
+  .side {
+    width: auto;
+    min-width: 0;
+    flex: 0 1 38%;
+    max-width: 38%;
+    box-sizing: border-box;
+    height: auto;
+    min-height: auto;
+    overflow: auto;
   }
 
-  /* Visor flexible (~62%) */
-  .main{
-    min-width:0;
-    flex:1 1 62%; /* se ajusta con el espacio restante */
-    max-width:62%;
-    height:auto;
-    min-height:auto;
+  .main {
+    min-width: 0;
+    flex: 1 1 62%;
+    max-width: 62%;
+    height: auto;
+    min-height: auto;
   }
 
-  /* Altura del iframe (viewport horizontal) */
-  .main iframe{ min-height:70svh; }
+  .main iframe {
+    min-height: 70svh;
+  }
 }
